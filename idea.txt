@@ -1,0 +1,13 @@
+10,000 coins - allocate
+1. Imaginary Companies - Random value (Rise / Fall) - Vary based on the number of people buy/sell.
+2. Same value of the stock market that day - Buy/sell using coins.
+3. Leaderboard
+4. If a user reaches 0 coins, either the user can create a new account or pay the company a few bucks and get the desired coins. Else, the app can also provide some coins based on some challenges the user completes. 
+
+PAGES
+1. Welcome Page
+2. LOgin
+3. Dashboard / Profile
+4. Page to buy/sell stocks
+5. Stock list - buy/sell
+6. Leaderboard
