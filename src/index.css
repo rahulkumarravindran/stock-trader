@@ -27,10 +27,19 @@ body {
   display: flex;
 }
 
-.TopDiv h3{
+.TopDiv .SelectedTab{
   border: 1px solid rgb(182, 177, 177);
   border-bottom: 3px solid rgb(182, 177, 177);
   width: 50%;
+  background-color: rgb(182, 177, 177);
+  cursor: pointer;
+}
+
+.TopDiv .UnSelectedTab{
+  border: 1px solid rgb(182, 177, 177);
+  border-bottom: 3px solid rgb(182, 177, 177);
+  width: 50%;
+  cursor: pointer;
 }
 
 .BottomDiv form{
