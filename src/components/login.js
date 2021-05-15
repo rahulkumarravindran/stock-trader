@@ -30,9 +30,16 @@ const Login = (props) => {
     <div className="BottomDiv">
         <br></br>
         <form>
+            {!props.loginFlag ? <>
+            <input type='text' id="FirstName" placeholder="First Name"></input>
+            <input type='text' id="LastName" placeholder="Last Name"></input> 
+            </> : <></>}
             <input type='text' id="LoginUsername" placeholder="Username"></input>
             <input type='text' id='LoginPassword' placeholder='Password'></input>
-            <input className='LoginSubmit' type='submit'></input>
+            {!props.loginFlag ? <>
+            <input type='text' id='ConfirmPassword' placeholder='Confirm Password'></input>
+            </> : <></>}
+            <input className='LoginSubmit' type='submit' value={props.loginFlag ? 'Login' : 'Sign Up'}></input>
         </form>
     </div>
     </div>
