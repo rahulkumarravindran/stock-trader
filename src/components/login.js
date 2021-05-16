@@ -45,15 +45,17 @@ const Login = (props) => {
        
        //Sign up
        if(!props.loginFlag){ 
+           if (ValidatePassword(Password,CPassword)){
        props.AddUserdetails({FName,LName,Eid,Password})
-       
+           
        //resetting all the local states after submission
        setFName('');
        setLName('');
        setPassword('');
+           }
        }
        else{
-
+        props.onLogin(Eid,Password);
        }
     }
 

@@ -25,13 +25,30 @@ function App() {
 
   }
 
+  const onLogin = (username,password) => {
+    const userTemp=userLoginDetails.filter((user)=> user.emailAddress==username);
+    console.log(userTemp[0].password)
+
+    if (userTemp.length==0) {
+      alert("The username or password is in correct")
+    }
+
+    if(userTemp[0].password.localeCompare(password)==0){
+      alert("Welcome")
+      {<Redirect to="/" />}
+    }
+    else{
+      alert("The username or password is in correct")
+    }
+  }
+
   return (
     <Router>
     <div className="App">
       
       <Switch>
       <Route path='/login'>
-        <Login loginFlag={flagLogin} setLoginFlag={setLoginFlag} userLoginDetails={userLoginDetails} AddUserdetails={AddUserdetails} />
+        <Login loginFlag={flagLogin} setLoginFlag={setLoginFlag} userLoginDetails={userLoginDetails} AddUserdetails={AddUserdetails} onLogin={onLogin}/>
       </Route>
       </Switch>
       
