@@ -1,4 +1,13 @@
+import { useState } from "react"
+
 const Login = (props) => {
+
+    //local state values
+    const [FName,setFName] = useState('')
+    const [LName,setLName] = useState('')
+    const [Eid,setEid] = useState('')
+    const [Password,setPassword] = useState('')
+    const [CPassword,setCPassword] = useState('')
 
     const ToggleLoginFlag = (loginFlag) => {
         if(loginFlag){
@@ -20,6 +29,20 @@ const Login = (props) => {
         }
     }
 
+    const ValidatePassword = (password,confirmPassword) => {
+        
+        if(password!==confirmPassword){
+            alert('The password and the confirm password do not match. Please Verify and submit again')
+            return false;
+        }
+        
+        return true;
+    }
+
+    const onSubmit = () => {
+        
+    }
+
 
     return (<>
     <div className="LoginContainer">
@@ -29,15 +52,15 @@ const Login = (props) => {
     </div>
     <div className="BottomDiv">
         <br></br>
-        <form>
+        <form onSubmit={onSubmit}> 
             {!props.loginFlag ? <>
-            <input type='text' id="FirstName" placeholder="First Name"></input>
-            <input type='text' id="LastName" placeholder="Last Name"></input> 
+            <input type='text' id="FirstName" placeholder="First Name" maxLength="25" onChange={(e)=>setFName(e.target.value)} value={FName} required></input>
+            <input type='text' id="LastName" placeholder="Last Name" maxLength="25" onChange={(e)=>setLName(e.target.value)} value={LName} required></input> 
             </> : <></>}
-            <input type='text' id="LoginUsername" placeholder="Username"></input>
-            <input type='text' id='LoginPassword' placeholder='Password'></input>
+            <input type='text' id="LoginUsername" placeholder="e-Mail address" maxLength="36" onChange={(e)=>setEid(e.target.value)} value={Eid} required></input>
+            <input type='text' id='LoginPassword' placeholder='Password' maxLength="25" onChange={(e)=>setPassword(e.target.value)} value={Password} required></input>
             {!props.loginFlag ? <>
-            <input type='text' id='ConfirmPassword' placeholder='Confirm Password'></input>
+            <input type='text' id='ConfirmPassword' placeholder='Confirm Password' maxLength="25" onChange={(e)=>setCPassword(e.target.value)} value={CPassword} required></input>
             </> : <></>}
             <input className='LoginSubmit' type='submit' value={props.loginFlag ? 'Login' : 'Sign Up'}></input>
         </form>
