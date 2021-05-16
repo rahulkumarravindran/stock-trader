@@ -74,9 +74,9 @@ const Login = (props) => {
             <input type='text' id="LastName" placeholder="Last Name" maxLength="25" onChange={(e)=>setLName(e.target.value)} value={LName} required></input> 
             </> : <></>}
             <input type='text' id="LoginUsername" placeholder="e-Mail address" maxLength="36" onChange={(e)=>setEid(e.target.value)} value={Eid} required></input>
-            <input type='text' id='LoginPassword' placeholder='Password' maxLength="25" onChange={(e)=>setPassword(e.target.value)} value={Password} required></input>
+            <input type='password' id='LoginPassword' placeholder='Password' maxLength="25" onChange={(e)=>setPassword(e.target.value)} value={Password} required></input>
             {!props.loginFlag ? <>
-            <input type='text' id='ConfirmPassword' placeholder='Confirm Password' maxLength="25" onChange={(e)=>setCPassword(e.target.value)} value={CPassword} required></input>
+            <input type='password' id='ConfirmPassword' placeholder='Confirm Password' maxLength="25" onChange={(e)=>setCPassword(e.target.value)} value={CPassword} required></input>
             </> : <></>}
             <input className='LoginSubmit' type='submit' value={props.loginFlag ? 'Login' : 'Sign Up'}></input>
         </form>
