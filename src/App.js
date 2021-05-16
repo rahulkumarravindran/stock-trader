@@ -1,6 +1,6 @@
 
 import './App.css';
-import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
+import {BrowserRouter as Router, Redirect, Route, Switch} from 'react-router-dom'
 import Login from './components/Login.js'
 import {useState} from 'react'
 
@@ -14,8 +14,15 @@ function App() {
 
   const AddUserdetails = (userDetails) => {
     let id = userLoginDetails.length +1;
-    const details = {id,...userDetails};
-    setUserLoginDetails(...userLoginDetails,details)
+    const details = {id: id.toString(),...userDetails};
+    //console.log(details)
+    setUserLoginDetails([...userLoginDetails,details])
+    //console.log(userLoginDetails)
+
+    {<Redirect to="/login" />}
+    alert('User has been successfully created')
+    setLoginFlag(true)
+
   }
 
   return (
@@ -24,7 +31,7 @@ function App() {
       
       <Switch>
       <Route path='/login'>
-        <Login loginFlag={flagLogin} setLoginFlag={setLoginFlag} userLoginDetails={userLoginDetails} />
+        <Login loginFlag={flagLogin} setLoginFlag={setLoginFlag} userLoginDetails={userLoginDetails} AddUserdetails={AddUserdetails} />
       </Route>
       </Switch>
       

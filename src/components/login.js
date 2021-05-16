@@ -11,21 +11,21 @@ const Login = (props) => {
 
     const ToggleLoginFlag = (loginFlag) => {
         if(loginFlag){
-            console.log(props.loginFlag)
+            //console.log(props.loginFlag)
         }
         else{
             props.setLoginFlag(!loginFlag)
-            console.log(props.loginFlag)
+            //console.log(props.loginFlag)
         }
     }
 
     const ToggleSignupFlag = (loginFlag) => {
         if(loginFlag){
             props.setLoginFlag(!loginFlag)
-            console.log(props.loginFlag)
+            //console.log(props.loginFlag)
         }
         else{
-            console.log(props.loginFlag)
+            //console.log(props.loginFlag)
         }
     }
 
@@ -39,8 +39,22 @@ const Login = (props) => {
         return true;
     }
 
-    const onSubmit = () => {
-        
+    const onSubmit = (e) => {
+       //Prevent the default action of submitting to a page
+       e.preventDefault();
+       
+       //Sign up
+       if(!props.loginFlag){ 
+       props.AddUserdetails({FName,LName,Eid,Password})
+       
+       //resetting all the local states after submission
+       setFName('');
+       setLName('');
+       setPassword('');
+       }
+       else{
+
+       }
     }
 
 
