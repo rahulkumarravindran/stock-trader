@@ -2,6 +2,7 @@
 import './App.css';
 import {BrowserRouter as Router, Redirect, Route, Switch} from 'react-router-dom'
 import Login from './components/Login.js'
+import Dashboard from './components/Dashboard.js'
 import {useState} from 'react'
 
 function App() {
@@ -35,7 +36,7 @@ function App() {
 
     if(userTemp[0].password.localeCompare(password)==0){
       alert("Welcome")
-      {<Redirect to="/" />}
+      return (<Redirect to="/Dashbard" />)
     }
     else{
       alert("The username or password is in correct")
@@ -49,6 +50,9 @@ function App() {
       <Switch>
       <Route path='/login'>
         <Login loginFlag={flagLogin} setLoginFlag={setLoginFlag} userLoginDetails={userLoginDetails} AddUserdetails={AddUserdetails} onLogin={onLogin}/>
+      </Route>
+      <Route path='/Dashboard'>
+        <Dashboard />
       </Route>
       </Switch>
       
