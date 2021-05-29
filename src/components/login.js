@@ -29,8 +29,7 @@ const Login = (props) => {
         }
     }
 
-    const ValidatePassword = (password,confirmPassword) => {
-        
+    const ValidatePassword = (password,confirmPassword) => { 
         if(password!==confirmPassword){
             alert('The password and the confirm password do not match. Please Verify and submit again')
             return false;
@@ -45,14 +44,17 @@ const Login = (props) => {
        
        //Sign up
        if(!props.loginFlag){ 
-           if (ValidatePassword(Password,CPassword)){
-       props.AddUserdetails({FName,LName,Eid,Password})
+            let tempFlag=props.userLoginDetails.filter((user)=>user.emailAddress==Eid).length;
+            let tempPflag = ValidatePassword(Password,CPassword);
+           if (tempPflag && tempFlag==0){
+       props.AddUserdetails({firstName: FName,lastName: LName,emailAddress: Eid,password: Password})
            
        //resetting all the local states after submission
        setFName('');
        setLName('');
        setPassword('');
            }
+           else{if (tempFlag > 0) {alert("User already exists")}}
        }
        else{
         props.onLogin(Eid,Password);

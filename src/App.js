@@ -18,9 +18,9 @@ function App() {
     const details = {id: id.toString(),...userDetails};
     //console.log(details)
     setUserLoginDetails([...userLoginDetails,details])
-    //console.log(userLoginDetails)
+    console.log(userLoginDetails)
 
-    {<Redirect to="/login" />}
+    //{<Redirect to="/login" />}
     alert('User has been successfully created')
     setLoginFlag(true)
 
@@ -28,7 +28,7 @@ function App() {
 
   const onLogin = (username,password) => {
     const userTemp=userLoginDetails.filter((user)=> user.emailAddress==username);
-    console.log(userTemp[0].password)
+    //console.log(userTemp[0].password)
 
     if (userTemp.length==0) {
       alert("The username or password is in correct")
@@ -36,7 +36,7 @@ function App() {
 
     if(userTemp[0].password.localeCompare(password)==0){
       alert("Welcome")
-      return (<Redirect to="/Dashbard" />)
+      //return (<Redirect to="/Dashbard" />)
     }
     else{
       alert("The username or password is in correct")
