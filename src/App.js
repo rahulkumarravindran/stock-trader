@@ -13,12 +13,13 @@ function App() {
   const [flagLogin,setLoginFlag] = useState(true);
   //console.log({flagLogin});
 
-  const AddUserdetails = (userDetails) => {
+  const AddUserdetails = async(userDetails) => {
     let id = userLoginDetails.length +1;
     const details = {id: id.toString(),...userDetails};
     //console.log(details)
     setUserLoginDetails([...userLoginDetails,details])
-    console.log(userLoginDetails)
+
+    //Promise for adding a task
 
     //{<Redirect to="/login" />}
     alert('User has been successfully created')
@@ -31,10 +32,11 @@ function App() {
     //console.log(userTemp[0].password)
 
     if (userTemp.length==0) {
-      alert("The username or password is in correct")
+      alert("The user does not exist. Try signing up")
+      setLoginFlag(false)
     }
 
-    if(userTemp[0].password.localeCompare(password)==0){
+    else if(userTemp[0].password.localeCompare(password)==0){
       alert("Welcome")
       //return (<Redirect to="/Dashbard" />)
     }
